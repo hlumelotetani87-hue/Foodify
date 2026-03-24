@@ -10,9 +10,13 @@ if (!publishableKey) {
 }
 
 export default function RootLayout() {
+  const colorScheme = useColorScheme();
+
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <Stack screenOptions={{ headerShown: false }} />;
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack screenOptions={{ headerShown: false }} />;
+      </ThemeProvider>
     </ClerkProvider>
   );
 }
