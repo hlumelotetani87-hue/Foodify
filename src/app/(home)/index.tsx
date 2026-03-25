@@ -22,20 +22,6 @@ export default function Page() {
         <Pressable style={styles.button} onPress={() => signOut()}>
           <Text style={styles.buttonText}>Sign out</Text>
         </Pressable>
-
-        <View
-          style={{
-            width: 36,
-            height: 36,
-            borderRadius: 18,
-            overflow: "hidden",
-            marginRight: 16,
-          }}
-        >
-          <UserButton />
-        </View>
-
-        <UserProfileView style={{ flex: 1 }} />
       </Show>
     </View>
   );
