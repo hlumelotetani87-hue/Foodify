@@ -2,13 +2,23 @@ import { useAuth } from "@clerk/expo";
 import { Redirect } from "expo-router";
 import { NativeTabs } from "expo-router/unstable-native-tabs";
 import { useColorScheme } from "nativewind";
+import "../../global.css"
+import { useEffect } from "react";
+import { useGroceryStore } from "@/store/grocery-store";
 
 export default function TabsLayout() {
   const { isSignedIn, isLoaded } = useAuth();
+  
+  const { loadItems, items } = useGroceryStore();
 
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
   const tabTintColor = isDark ? "hsl(142 70% 50%)" : "hsl(147 70% 33%)";
+
+  useEffect(() => {
+    loadItems();
+  }, []);
+
 
   if (!isLoaded) {
     return null;
@@ -42,7 +52,7 @@ export default function TabsLayout() {
         <NativeTabs.Trigger.Label>Planner</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="Insight">
+      <NativeTabs.Trigger name="Insights">
         <NativeTabs.Trigger.Icon
           sf={{
             default: "chart.bar",
@@ -53,5 +63,5 @@ export default function TabsLayout() {
         <NativeTabs.Trigger.Label>Progress</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
     </NativeTabs>
-  );
+  )
 }

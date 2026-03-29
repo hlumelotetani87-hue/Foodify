@@ -2,7 +2,7 @@ import {
   deleteGroceryItem,
   setGroceryItemPurchased,
   updateGroceryItemQuantity,
-} from "../lib/server/db-actions";
+} from "../app/lib/server/db-actions";
 
 type PatchBody = {
     quantity ?: number;

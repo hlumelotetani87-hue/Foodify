@@ -1,4 +1,4 @@
-import { clearPurchasedItems } from "../lib/server/db-actions";
+import { clearPurchasedItems } from "../app/lib/server/db-actions";
 
 export async function POST() {
   try {
