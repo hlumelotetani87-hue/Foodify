@@ -8,6 +8,7 @@ import {
 import { Stack } from "expo-router";
 import { useColorScheme } from "react-native";
 import "../../global.css";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
@@ -20,9 +21,11 @@ export default function RootLayout() {
 
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+    <KeyboardProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack screenOptions={{ headerShown: false }} />
       </ThemeProvider>
+      </KeyboardProvider>
     </ClerkProvider>
   );
 }
