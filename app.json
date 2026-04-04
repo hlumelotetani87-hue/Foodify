@@ -38,7 +38,15 @@
           }
         }
       ],
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "foodify",
+          "organization": "required-9d"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
