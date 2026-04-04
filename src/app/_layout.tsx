@@ -1,3 +1,4 @@
+import "expo-dev-client";
 import { ClerkProvider } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import {
