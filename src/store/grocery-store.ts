@@ -47,7 +47,7 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
   loadItems: async () => {
     set({ isLoading: true, error: null });
     try {
-      const res = await fetch("/api/items");
+      const res = await fetch("/api/hello");
       const payload = (await res.json()) as ItemsResponse;
 
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
@@ -63,7 +63,7 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
   addItem: async (input) => {
     set({ error: null });
     try {
-      const res = await fetch("/api/items", {
+      const res = await fetch("/api/hello", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -88,7 +88,7 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
     set({ error: null });
 
     try {
-      const res = await fetch(`/api/items/${id}`, {
+      const res = await fetch(`/api/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ quantity: nextQuantity }),
@@ -113,7 +113,7 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
     const nextPurchased = !currentItem.purchased;
     set({ error: null });
     try {
-      const res = await fetch(`/api/items/${id}`, {
+      const res = await fetch(`/api/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ purchased: nextPurchased }),
@@ -136,7 +136,7 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
   removeItem: async (id) => {
     set({ error: null });
     try {
-      const res = await fetch(`/api/items/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
 
       set((state) => ({ items: state.items.filter((item) => item.id !== id) }));
@@ -149,7 +149,7 @@ export const useGroceryStore = create<GroceryStore>((set, get) => ({
   clearPurchased: async () => {
     set({ error: null });
     try {
-      const res = await fetch("/api/items/clear-purchased", { method: "POST" });
+      const res = await fetch("/api/clearPurchased", { method: "POST" });
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
 
       const items = get().items.filter((item) => !item.purchased);

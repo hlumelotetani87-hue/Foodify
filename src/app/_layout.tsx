@@ -20,11 +20,7 @@ if (!publishableKey) {
 
 Sentry.init({
   dsn: process.env.EXPO_PUBLIC_SENTRY_DSN,
-
-  
   integrations: [Sentry.feedbackIntegration()],
-
-  
 });
 
 export default Sentry.wrap(function RootLayout() {
@@ -32,10 +28,10 @@ export default Sentry.wrap(function RootLayout() {
 
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-    <KeyboardProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack screenOptions={{ headerShown: false }} />
-      </ThemeProvider>
+      <KeyboardProvider>
+        <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+          <Stack screenOptions={{ headerShown: false }} />
+        </ThemeProvider>
       </KeyboardProvider>
     </ClerkProvider>
   );

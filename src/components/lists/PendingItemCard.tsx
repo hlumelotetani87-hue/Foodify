@@ -1,20 +1,20 @@
-import { View, Text, Pressable } from 'react-native'
-import React from 'react'
-import { GroceryItem, useGroceryStore } from '@/store/grocery-store'
-import { FontAwesome6 } from '@expo/vector-icons';
+import React from "react";
+import { Pressable, Text, View } from "react-native";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { GroceryItem, useGroceryStore } from "@/store/grocery-store";
 
 const priorityPillBg = {
   low: "bg-priority-low",
   medium: "bg-priority-medium",
   high: "bg-priority-high",
-}
+};
 const priorityPillText = {
   low: "text-priority-low-foreground",
   medium: "text-priority-medium-foreground",
   high: "text-priority-high-foreground",
-}
+};
 
-const PendingItemCard = ({ item }:{ item: GroceryItem }) => {
+const PendingItemCard = ({ item }: { item: GroceryItem }) => {
   const { removeItem, updateQuantity, togglePurchased } = useGroceryStore();
 
   return (
@@ -74,7 +74,7 @@ const PendingItemCard = ({ item }:{ item: GroceryItem }) => {
         </View>
 
         <Pressable
-          className="h-9 w-9 items-center justify-conter rounded-1xl bg-distructive"
+          className="h-9 w-9 items-center justify-center rounded-xl bg-destructive"
           onPress={() => removeItem(item.id)}
         >
           <FontAwesome6 name="trash" size={13} color="#d45f58" />
@@ -82,6 +82,6 @@ const PendingItemCard = ({ item }:{ item: GroceryItem }) => {
       </View>
     </View>
   );
-}
+};
 
-export default PendingItemCard
+export default PendingItemCard;
