@@ -26,7 +26,7 @@
     "expo-auth-session": "~55.0.9",
     "expo-constants": "~55.0.8",
     "expo-crypto": "~55.0.10",
-    "expo-dev-client": "~55.0.14",
+    "expo-dev-client": "~55.0.26",
     "expo-device": "~55.0.10",
     "expo-font": "~55.0.4",
     "expo-glass-effect": "~55.0.8",
