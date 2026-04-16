@@ -47,7 +47,10 @@
           "project": "foodify",
           "organization": "required-9d"
         }
-      ]
+      ],
+      "@sentry/react-native",
+      "expo-image",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
